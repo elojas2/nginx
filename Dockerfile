@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.8
 
 WORKDIR /app
 
@@ -6,8 +6,6 @@ RUN pip install Flask
 
 COPY app/app.py /app/app.py
 
-EXPOSE 5000
+ENV flask_app /app/app.py
 
-ENV FLASK_APP /app/app.py
-
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD ["python", "app.py"]

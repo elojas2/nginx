@@ -9,6 +9,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5000:5000
+    networks:
+      - proxy
 
   nginx_flask:
     build:
@@ -19,3 +21,11 @@ services:
       - 80:80
     depends_on:
       - flask_app
+    networks:
+      - proxy
+
+
+networks:
+  proxy:
+    driver: bridge
+  
