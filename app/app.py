@@ -8,13 +8,5 @@ def index():
     data_e_hora_atuais = datetime.now()
     return data_e_hora_atuais.strftime('%d/%m/%Y %H:%M') 
 
-# @app.route('/cache')
-# def cache():
-#     return index()
-
-# @app.route('/nocache')
-# def nocache():
-#     return index()
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
