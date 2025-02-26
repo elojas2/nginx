@@ -1,12 +1,12 @@
-version: '3'
-
 services:
   flask_app:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
     ports:
-      - "5000:5000"
+      - "8000:8000"
+    networks:
+      - elojas_net
 
   nginx:
     image: nginx:latest
@@ -16,3 +16,9 @@ services:
       - "8080:8080"
     depends_on:
       - flask_app
+    networks:
+      - elojas_net
+
+networks:
+  elojas_net:
+    name: elojas_net
